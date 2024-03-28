@@ -18,12 +18,11 @@ on:
 
 jobs:
   test:
-    name: Node ${{ matrix.node_version }} - On ${{ matrix.os }}
+    name: Node 18 - On ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node_version: "18.x"
         os: [ ubuntu-latest ]
 
     steps:
