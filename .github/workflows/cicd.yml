@@ -64,6 +64,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist
+          path: ~/dist
        
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
@@ -85,6 +86,8 @@ jobs:
           echo ${{ needs.infra.outputs.eip }}
           echo $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
+          ls ~/
+          ls ~/dist
       - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -93,7 +96,7 @@ jobs:
           port: 22
           key: ${{ secrets.KEY }}
           source: dist/
-          target: ~/dist
+          target: ~/
             #  deployment:
             #    runs-on: ubuntu-latest
             #    needs: [ infra ]
