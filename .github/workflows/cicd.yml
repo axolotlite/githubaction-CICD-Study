@@ -80,8 +80,8 @@ jobs:
         run: |
           terraform-bin -chdir=terraform output -raw eip_value > ip_address.txt
           echo "ec2_address=$(cat ip_address.txt)" >> $GITHUB_OUTPUT
-      - name: Zip artifact for deployment
-        run: zip ./release.zip ./dist -r
+#      - name: Zip artifact for deployment
+#        run: zip ./release.zip ./dist -r
       - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -89,8 +89,8 @@ jobs:
           username: ec2-user
           port: 22
           key: ${{ secrets.KEY }}
-          source: ./release.zip
-          target: /home/ec2-user/release.zip
+          source: ./dist
+          target: /home/ec2-user/app
             #  deployment:
             #    runs-on: ubuntu-latest
             #    needs: [ infra ]
