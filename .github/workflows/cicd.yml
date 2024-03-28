@@ -95,7 +95,7 @@ jobs:
           username: ec2-user
           port: 22
           key: ${{ secrets.KEY }}
-          source: dist/
+          source: ~/dist/
           target: ~/
             #  deployment:
             #    runs-on: ubuntu-latest
