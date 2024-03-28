@@ -17,7 +17,7 @@ on:
       - '*.md'
 
 jobs:
-  test:
+  build:
     name: Node 18 - On ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       eip: ${{ steps.max.outputs.ec2_address }}
-    needs: [ dist ]
+    needs: [ build ]
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
