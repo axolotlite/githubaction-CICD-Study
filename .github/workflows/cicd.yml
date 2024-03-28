@@ -105,7 +105,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           script: |
-            yum install -y nodejs npm
+            sudo yum install -y nodejs npm
             sudo npm install -g pm2
             sudo pm2 start ~/app/main.js
 
