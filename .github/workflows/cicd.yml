@@ -98,8 +98,7 @@ jobs:
           username: ec2-user
           port: 22
           key: ${{ secrets.KEY }}
-          source: dist
-          target: app
+          source: ~/dist
       - name: get tmp
         run: ls /tmp
             #  deployment:
