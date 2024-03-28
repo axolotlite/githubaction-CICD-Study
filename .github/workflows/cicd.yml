@@ -107,7 +107,7 @@ jobs:
           script: |
             sudo yum install -y nodejs npm
             sudo npm install -g pm2
-            sudo pm2 start ~/app/main.js
+            sudo pm2 start ~/app/dist/main.js
 
 
 
