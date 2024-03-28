@@ -78,5 +78,5 @@ resource "aws_eip_association" "associate"{
 # output/print the eip
 output "eip_value" {
     description = "VMs Public IP"
-    value= aws_instance.my-ec2.public_ip
+    value= aws_eip.my-eip.public_ip
 }
