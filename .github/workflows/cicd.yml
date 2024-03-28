@@ -86,7 +86,10 @@ jobs:
           echo ${{ needs.infra.outputs.eip }}
           echo $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
-          ls ~/
+          pwd
+          echo "home"
+          ls ~/ 
+          echo "home/dist"
           ls ~/dist
       - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.7
@@ -97,6 +100,8 @@ jobs:
           key: ${{ secrets.KEY }}
           source: dist
           target: app
+      - name: get tmp
+        run: ls /tmp
             #  deployment:
             #    runs-on: ubuntu-latest
             #    needs: [ infra ]
